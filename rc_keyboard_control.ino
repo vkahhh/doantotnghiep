@@ -56,7 +56,7 @@ if (Serial.available())
 //    digitalWrite(ENB, HIGH);
 //    Serial.println("Right");
 //    Serial.println("Reverse");
-  }
+  //}
 
   if (state == 3)
   {
