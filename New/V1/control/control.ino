@@ -3,8 +3,8 @@ int m11 = 5;
 int m12 = 6;
 int m21 = 9;
 int m22 = 10;
-//int const ENA = 3;  
-//int const ENB = 8; 
+int const ENA = 3;  
+int const ENB = 8; 
 
 
 // initial command
@@ -17,8 +17,8 @@ void setup()
   pinMode(m12, OUTPUT);//A
   pinMode(m21, OUTPUT);//B
   pinMode(m22, OUTPUT);//B
-//  pinMode(ENA, OUTPUT);   // set all the motor control pins to outputs
-//  pinMode(ENB, OUTPUT);
+  pinMode(ENA, OUTPUT);   // set all the motor control pins to outputs
+  pinMode(ENB, OUTPUT);
 
   Serial.begin(115200);
   
@@ -43,8 +43,8 @@ if (Serial.available())
     digitalWrite(m12, LOW);
     digitalWrite(m21, HIGH);
     digitalWrite(m22, LOW);   
-//    digitalWrite(ENA, HIGH);
-//    digitalWrite(ENB, HIGH);
+    digitalWrite(ENA, HIGH);
+    digitalWrite(ENB, HIGH);
     Serial.println("Left");
   }
 //
@@ -65,8 +65,8 @@ if (Serial.available())
     digitalWrite(m12, HIGH);
     digitalWrite(m21, LOW);
     digitalWrite(m22, LOW);   
-//    digitalWrite(ENA, HIGH);
-//    digitalWrite(ENB, HIGH);
+    digitalWrite(ENA, HIGH);
+    digitalWrite(ENB, HIGH);
 
   Serial.println("Right");
   }
@@ -77,8 +77,8 @@ if (Serial.available())
     digitalWrite(m12, HIGH);
     digitalWrite(m21, HIGH);
     digitalWrite(m22, LOW);
-//    digitalWrite(ENA, HIGH);
-//    digitalWrite(ENB, HIGH);
+    digitalWrite(ENA, HIGH);
+    digitalWrite(ENB, HIGH);
 
   Serial.println("On track");
   }
@@ -89,8 +89,8 @@ if (Serial.available())
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
     digitalWrite(in4, LOW);
-//    digitalWrite(ENA, LOW);
-//    digitalWrite(ENB, LOW);
+    digitalWrite(ENA, LOW);
+    digitalWrite(ENB, LOW);
 
   Serial.println("Stop");
   }
