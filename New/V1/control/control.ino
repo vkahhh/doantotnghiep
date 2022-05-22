@@ -85,10 +85,10 @@ if (Serial.available())
   if (state == 5)
   {
   
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, LOW);
+    digitalWrite(m11, LOW);
+    digitalWrite(m12, LOW);
+    digitalWrite(m21, LOW);
+    digitalWrite(m22, LOW);
     digitalWrite(ENA, LOW);
     digitalWrite(ENB, LOW);
 
