@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO                    #Import GPIO library
 import time
+import serial
 
+ser = serial.Serial("/dev/ttyACM0", 115200, timeout=1)           # linux
 #Import time library
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)                    # programming the GPIO by BCM pin numbers
@@ -9,19 +11,19 @@ TRIG = 17
 ECHO = 27
 led = 22
 
-m11=16
-m12=12
-m21=21
-m22=20
+# m11=16
+# m12=12
+# m21=21
+# m22=20
 
 GPIO.setup(TRIG,GPIO.OUT)                  # initialize GPIO Pin as outputs
 GPIO.setup(ECHO,GPIO.IN)                   # initialize GPIO Pin as input
 GPIO.setup(led,GPIO.OUT)                  
 
-GPIO.setup(m11,GPIO.OUT)
-GPIO.setup(m12,GPIO.OUT)
-GPIO.setup(m21,GPIO.OUT)
-GPIO.setup(m22,GPIO.OUT)
+# GPIO.setup(m11,GPIO.OUT)
+# GPIO.setup(m12,GPIO.OUT)
+# GPIO.setup(m21,GPIO.OUT)
+# GPIO.setup(m22,GPIO.OUT)
 
 #GPIO.output(led, 1)
 
@@ -29,38 +31,42 @@ time.sleep(5)
 
 def stop():
     print ("Stop")
-    GPIO.output(m11, 0)
-    GPIO.output(m12, 0)
-    GPIO.output(m21, 0)
-    GPIO.output(m22, 0)
+    # GPIO.output(m11, 0)
+    # GPIO.output(m12, 0)
+    # GPIO.output(m21, 0)
+    # GPIO.output(m22, 0)
+    ser.write(chr(5).encode())
 
 def forward():
-    GPIO.output(m11, 0)
-    GPIO.output(m12, 1)
-    GPIO.output(m21, 1)
-    GPIO.output(m22, 0)
+    # GPIO.output(m11, 0)
+    # GPIO.output(m12, 1)
+    # GPIO.output(m21, 1)
+    # GPIO.output(m22, 0)
     print ("Forward")
+    ser.write(chr(1).encode())
 
 def back():
-    GPIO.output(m11, 0)
-    GPIO.output(m12, 1)
-    GPIO.output(m21, 0)
-    GPIO.output(m22, 1)
+    # GPIO.output(m11, 0)
+    # GPIO.output(m12, 1)
+    # GPIO.output(m21, 0)
+    # GPIO.output(m22, 1)
     print ("Back")
 
 def left():
-    GPIO.output(m11, 0)
-    GPIO.output(m12, 0)
-    GPIO.output(m21, 1)
-    GPIO.output(m22, 0)
+    # GPIO.output(m11, 0)
+    # GPIO.output(m12, 0)
+    # GPIO.output(m21, 1)
+    # GPIO.output(m22, 0)
     print ("Left")
+    ser.write(chr(4).encode())
 
 def right():
-    GPIO.output(m11, 0)
-    GPIO.output(m12, 1)
-    GPIO.output(m21, 0)
-    GPIO.output(m22, 0)
+    # GPIO.output(m11, 0)
+    # GPIO.output(m12, 1)
+    # GPIO.output(m21, 0)
+    # GPIO.output(m22, 0)
     print ("Right")
+    ser.write(chr(3).encode())
 
 #stop()
 count=0
